@@ -50,6 +50,34 @@
 
     </RadioGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="בחירת עובי בצק"
+        android:textSize="20sp"
+        android:padding="15dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgCrust"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rbThin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="דק"/>
+
+        <RadioButton
+            android:id="@+id/rbThick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="עבה"/>
+
+    </RadioGroup>
+
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

@@ -1,8 +1,10 @@
 package com.example.pizzaorder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,5 +32,12 @@ public class SummaryActivity extends AppCompatActivity {
                 finish();
             }
         });
+        Intent intent = getIntent();
+
+        TextView tvSummary = findViewById(R.id.tvSummary);
+
+        String size = intent.getStringExtra("size");
+
+        tvSummary.setText("ההזמנה שלך: פיצה " + size + " בצק: " + intent.getStringExtra("crust"));
     }
 }
