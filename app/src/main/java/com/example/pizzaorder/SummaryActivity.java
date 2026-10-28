@@ -37,7 +37,24 @@ public class SummaryActivity extends AppCompatActivity {
         TextView tvSummary = findViewById(R.id.tvSummary);
 
         String size = intent.getStringExtra("size");
+        String crust = intent.getStringExtra("crust");
 
-        tvSummary.setText("ההזמנה שלך: פיצה " + size + " בצק: " + intent.getStringExtra("crust"));
+        tvSummary.setText("ההזמנה שלך: פיצה " + size + " בצק: " + crust);
+
+        int price = intent.getIntExtra("price", 0);
+        TextView priceTx = findViewById(R.id.priceTx);
+        priceTx.setText("price: " + price);
+
+        Button btnPayment = findViewById(R.id.btnPayment);
+        btnPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SummaryActivity.this, PaymentActivity.class);
+                intent.putExtra("pizzaSize", size);
+                intent.putExtra("pizzaCrust", crust);
+                intent.putExtra("pizzaPrice", price);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     RadioGroup rgSize;
     RadioGroup rgCrust;
+    int price = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 String size;
                 if (checkedId == R.id.rbSmall) {
                     size = "קטנה";
+                    price += 12;
                 } else if (checkedId == R.id.rbMedium) {
                     size = "בינונית";
+                    price += 17;
                 } else {
                     size = "משפחתית";
+                    price += 20;
                 }
 
                 if (checkedIdC == -1) {
@@ -56,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 String crust;
-                if(checkedIdC == R.id.rbThick)
+                if(checkedIdC == R.id.rbThick) {
                     crust = "עבה";
+                    price += 6;
+                }
                 else
                     crust = "דק";
 
@@ -73,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, SummaryActivity.class);
                         intent.putExtra("size", size);
                         intent.putExtra("crust", crust);
+                        intent.putExtra("price", price);
                         startActivity(intent);
                     }
                 });
