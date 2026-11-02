@@ -89,5 +89,27 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
+        Button btnReset = findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("איפוס בחירה");
+                builder.setMessage("אתה בטוח רוצה לאפס?");
+
+                builder.setPositiveButton("כן", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        rgCrust.clearCheck();
+                        rgSize.check(R.id.rbMedium);
+                    }
+                });
+
+                builder.setNegativeButton("לא", null);
+
+                builder.show();
+            }
+        });
     }
 }
