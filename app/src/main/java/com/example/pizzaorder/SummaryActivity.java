@@ -54,6 +54,7 @@ public class SummaryActivity extends AppCompatActivity {
                 intent.putExtra("pizzaCrust", crust);
                 intent.putExtra("pizzaPrice", price);
                 startActivity(intent);
+                finish();
             }
         });
     }
